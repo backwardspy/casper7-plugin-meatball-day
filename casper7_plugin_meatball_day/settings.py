@@ -8,9 +8,7 @@ from pydantic import BaseSettings
 class Settings(BaseSettings):
     """Top level settings."""
 
-    meatball_database: Path = (
-        Path(platformdirs.user_data_dir(__package__)) / "meatball.db"
-    )
+    meatball_database: Path = platformdirs.user_data_path("casper7") / "meatball.db"
 
 
 settings = Settings()
