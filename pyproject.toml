@@ -15,7 +15,7 @@ casper7-plugin-meatball-day = "casper7_plugin_meatball_day.run:plugin"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-piccolo = {extras = ["all"], version = "^0.74.4"}
+piccolo = {extras = ["all"], version = "^0.75.0"}
 docopt-ng = "^0.8.1"
 pendulum = "^2.1.2"
 pydantic = "^1.9.1"
@@ -23,9 +23,9 @@ platformdirs = "^2.5.2"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.3.0"
-pylint = "^2.13.9"
-mypy = "^0.960"
-ward = "^0.66.0-beta.0"
+pylint = "^2.14.1"
+mypy = "^0.961"
+ward = "^0.66.0b0"
 ptpython = "^3.0.20"
 isort = "^5.10.1"
 
