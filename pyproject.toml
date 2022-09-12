@@ -18,7 +18,7 @@ enable = true
 
 [tool.poetry.dependencies]
 python = "^3.10"
-piccolo = "^0.90.0"
+piccolo = {extras = ["all"], version = "^0.90.0"}
 docopt-ng = "^0.8.1"
 pendulum = "^2.1.2"
 pydantic = "^1.10.2"
