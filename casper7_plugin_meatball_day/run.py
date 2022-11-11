@@ -9,19 +9,22 @@ Usage:
     casper7-plugin-meatball-day [options] meatball-role [--] <args>
     casper7-plugin-meatball-day [options] meatball-next
     casper7-plugin-meatball-day refresh-role-assignments
+    casper7-plugin-meatball-day --listeners
     casper7-plugin-meatball-day --commands
     casper7-plugin-meatball-day --jobs
     casper7-plugin-meatball-day (-h | --help)
     casper7-plugin-meatball-day --version
 
 Options:
-    -g --guild GUILD-ID      Unique ID of the guild the command was sent from.
-    -c --channel CHANNEL-ID  Unique ID of the channel the command was sent from.
-    -u --user USER-ID        Unique ID of the user who sent the command.
-    --commands               Print available commands in JSON format.
-    --jobs                   Print jobs to be scheduled in JSON format.
-    -h --help                Show this screen.
-    --version                Show version.
+    -g --guild GUILD_ID         Guild ID the message is coming from.
+    -c --channel CHANNEL_ID     Channel ID the message is coming from.
+    -u --user USER_ID           User ID the message is coming from.
+    -m --message MESSAGE_ID     ID of the message that was sent.
+    --listeners                 Get listener config JSON.
+    --commands                  Get command config JSON.
+    --jobs                      Get job config JSON.
+    -h --help                   Show this screen.
+    --version                   Show version.
 """
 import asyncio
 import itertools
@@ -40,6 +43,11 @@ from casper7_plugin_meatball_day.tables import (
     MeatballRole,
     MeatballRoleAssignment,
 )
+
+
+def print_listeners() -> None:
+    """Print listener config JSON."""
+    print(json.dumps([]))
 
 
 def print_commands() -> None:
@@ -332,6 +340,8 @@ async def _plugin() -> None:
     user_id = args["--user"]
 
     match args:
+        case {"--listeners": True}:
+            print_listeners()
         case {"--commands": True}:
             print_commands()
         case {"--jobs": True}:
