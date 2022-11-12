@@ -1,6 +1,6 @@
 """Database table definitions."""
 
-from piccolo.columns import Date, Integer
+from piccolo.columns import Date, Integer, Text
 from piccolo.engine.sqlite import SQLiteEngine
 from piccolo.table import Table
 
@@ -12,8 +12,8 @@ DB = SQLiteEngine(str(settings.meatball_database))
 class MeatballDay(Table, db=DB):
     """Stores meatball dates against a user & guild ID."""
 
-    guild_id = Integer()
-    user_id = Integer()
+    guild_id = Text()
+    user_id = Text()
     month = Integer()
     day = Integer()
 
@@ -21,20 +21,20 @@ class MeatballDay(Table, db=DB):
 class MeatballChannel(Table, db=DB):
     """Stores the channel to post in for each guild."""
 
-    guild_id = Integer()
-    channel_id = Integer()
+    guild_id = Text()
+    channel_id = Text()
 
 
 class MeatballRole(Table, db=DB):
     """Stores the role to assign on meatball day for each guild."""
 
-    guild_id = Integer()
-    role_id = Integer()
+    guild_id = Text()
+    role_id = Text()
 
 
 class MeatballRoleAssignment(Table, db=DB):
     """Stores people who currently have the role assigned."""
 
-    guild_id = Integer()
-    user_id = Integer()
+    guild_id = Text()
+    user_id = Text()
     date = Date()
